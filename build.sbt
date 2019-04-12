@@ -3,7 +3,7 @@ name := "tools"
 ThisBuild / scalaVersion := "2.12.8"
 ThisBuild / version := "0.1.0-SNAPSHOT"
 
-scalacOptions ++= Seq(
+val commonOptions = Seq(
   "-encoding",
   "UTF-8",                 // source files are in UTF-8
   "-deprecation",          // warn about use of deprecated APIs
@@ -22,10 +22,12 @@ lazy val root = (project in file("."))
   .settings(
     name := "root",
     libraryDependencies ++= commonLibraries,
+    scalacOptions ++= commonOptions
   )
 
 lazy val sub = (project in file("sub"))
   .settings(
     name := "sub",
     libraryDependencies ++= commonLibraries,
+    scalacOptions ++= commonOptions
   )
